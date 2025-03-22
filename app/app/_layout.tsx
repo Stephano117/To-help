@@ -38,6 +38,9 @@ const AppContent: React.FC = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="second/[type]" options={{ headerShown: true }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="chat-voice" options={{ headerShown: false }} />
     </Stack>
   );
 };

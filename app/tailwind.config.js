@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}" , "./screen/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
@@ -16,9 +16,9 @@ module.exports = {
         pblack: ["Poppins-Black", "sans-serif"],
       },
       colors: {
-        twprimary: "#3e5e77",
-        twsecondary: "#ea6140",
-        twtertiary: "#fcfcfc",
+        twprimary: "#5B3E90",
+        twsecondary: "#ffff",
+        twtertiary: "#F0F3F3",
         text:"#2c3c49",
         success: "#2dd55b",
         warning: "#ffc409",
