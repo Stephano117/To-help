@@ -41,6 +41,7 @@ const AppContent: React.FC = () => {
       <Stack.Screen name="second/[type]" options={{ headerShown: true }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="chat-voice" options={{ headerShown: false }} />
+      <Stack.Screen name="other/chat.screen" options={{ headerShown: false }} />
     </Stack>
   );
 };
