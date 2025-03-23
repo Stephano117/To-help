@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon nodemon --ignore params.json --ignore result.json server.js"
   },
   "keywords": [],
   "author": "",
