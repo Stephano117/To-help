@@ -6,18 +6,18 @@ const authMiddleware = require('../middleware/authMiddleware'); // Si tu veux pr
 const router = express.Router();
 
 // Route pour créer un événement
-router.post('/events', authMiddleware, AgendaController.createEvent); // Protégée par authMiddleware
+router.post('/events', AgendaController.createEvent); // Protégée par authMiddleware
 
 // Route pour récupérer tous les événements d'un utilisateur
-router.get('/events/:userId', authMiddleware, AgendaController.getUserEvents); // Protégée par authMiddleware
+router.get('/events', AgendaController.getUserEvents); // Protégée par authMiddleware
 
 // Route pour récupérer un événement spécifique par son ID
-router.get('/events/:eventId', authMiddleware, AgendaController.getEventById); // Protégée par authMiddleware
+router.get('/events/:eventId', AgendaController.getEventById); // Protégée par authMiddleware
 
 // Route pour mettre à jour un événement
-router.put('/events/:eventId', authMiddleware, AgendaController.updateEvent); // Protégée par authMiddleware
+router.put('/events/:id', AgendaController.updateEvent); // Protégée par authMiddleware
 
 // Route pour supprimer un événement
-router.delete('/events/:eventId', authMiddleware, AgendaController.deleteEvent); // Protégée par authMiddleware
+router.delete('/events/:id', AgendaController.deleteEvent); // Protégée par authMiddleware
 
 module.exports = router;

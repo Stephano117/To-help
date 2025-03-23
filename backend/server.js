@@ -39,6 +39,7 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const agendaRoutes = require('./routes/agendaRoute');
 const sequelize = require('./config/db');
 
 const app = express();
@@ -51,6 +52,7 @@ app.use(express.static('public'));
 
 // Routes utilisateur
 app.use('/api/user', userRoutes);
+app.use('/api/agenda', agendaRoutes);
 
 // Route principale
 app.get('/', (req, res) => {

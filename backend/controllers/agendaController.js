@@ -35,7 +35,7 @@ class AgendaController {
   // Mettre à jour un événement
   static async updateEvent(req, res) {
     try {
-      const updatedEvent = await AgendaService.updateEvent(req.params.eventId, req.body);
+      const updatedEvent = await AgendaService.updateEvent(req.params.id, req.body);
       res.status(200).json(updatedEvent);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -45,7 +45,7 @@ class AgendaController {
   // Supprimer un événement
   static async deleteEvent(req, res) {
     try {
-      await AgendaService.deleteEvent(req.params.eventId);
+      await AgendaService.deleteEvent(req.params.id);
       res.status(200).json({ message: 'Événement supprimé' });
     } catch (error) {
       res.status(500).json({ message: error.message });

@@ -13,9 +13,9 @@ class AgendaService {
   }
 
   // Récupérer tous les événements pour un utilisateur
-  static async getUserEvents(userId) {
+  static async getUserEvents() {
     try {
-      const events = await Agenda.findAll({ where: { userId } });
+      const events = await Agenda.findAll();
       return events;
     } catch (error) {
       throw new Error('Erreur lors de la récupération des événements : ' + error.message);
@@ -36,9 +36,9 @@ class AgendaService {
   }
 
   // Mettre à jour un événement existant
-  static async updateEvent(eventId, updatedData) {
+  static async updateEvent(id, updatedData) {
     try {
-      const event = await Agenda.findByPk(eventId);
+      const event = await Agenda.findByPk(id);
       if (!event) {
         throw new Error('Événement non trouvé');
       }
@@ -50,9 +50,9 @@ class AgendaService {
   }
 
   // Supprimer un événement
-  static async deleteEvent(eventId) {
+  static async deleteEvent(id) {
     try {
-      const event = await Agenda.findByPk(eventId);
+      const event = await Agenda.findByPk(id);
       if (!event) {
         throw new Error('Événement non trouvé');
       }
@@ -62,6 +62,12 @@ class AgendaService {
       throw new Error('Erreur lors de la suppression de l\'événement : ' + error.message);
     }
   }
+
+  /*static async deleteMedecin(id) {
+    const medecin = await Medecin.findByPk(id);
+    if (!medecin) return null;
+    return await medecin.destroy();
+  };*/
 }
 
 module.exports = AgendaService;

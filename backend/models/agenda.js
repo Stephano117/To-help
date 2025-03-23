@@ -11,7 +11,7 @@ const Agenda = sequelize.define('Agenda', {
   titre: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
+    validate: { 
       notEmpty: true,
     },
   },
@@ -29,6 +29,9 @@ const Agenda = sequelize.define('Agenda', {
       isDate: true,  // Assure-toi que c'est une date valide
     },
   },
+
+  //tableName: 'agenda',
+  
 });
 
 module.exports = Agenda;
