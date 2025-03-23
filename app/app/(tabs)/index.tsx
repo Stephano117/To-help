@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
 import { Agenda } from "react-native-calendars";
+import { router } from 'expo-router';
 
 const items = {
     "2025-03-10": [
@@ -67,7 +68,12 @@ interface Item {
     providerName: string;
     providerColor: string;
 }
+
 const index = () => {
+    const handleAddEvent = () => {
+        router.push('/other/AddAgenda')
+    };
+
     return (
         <View className='flex-1'>
             <Agenda
@@ -97,10 +103,38 @@ const index = () => {
                     </TouchableOpacity>
                 )}
             />
+            {/* Bouton flottant pour ajouter un événement */}
+            <TouchableOpacity
+                style={styles.floatingButton}
+                onPress={handleAddEvent}
+            >
+                <Text style={styles.floatingButtonText}>+</Text>
+            </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
-export default index
+export default index;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    floatingButton: {
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: '#5B3E90',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 20,
+        right: 20,
+        elevation: 8, // Pour l'ombre sur Android
+        shadowColor: '#000', // Pour l'ombre sur iOS
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+    },
+    floatingButtonText: {
+        fontSize: 30,
+        color: '#FFF',
+    },
+});
