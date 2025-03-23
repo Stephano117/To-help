@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const agendaRoutes = require('./routes/agendaRoute'); // Import des routes agenda
 const sequelize = require('./config/db');
 const speechRoutes = require('./routes/speechRoutes');
 const router = express.Router();
@@ -13,9 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/user', userRoutes);
+app.use('/api/agenda', agendaRoutes); // Ajout des routes d'agenda
 
 sequelize
-  .sync({ force: false }) 
+  .sync({ force: false })
   .then(() => {
     console.log('Base de données synchronisée.');
   })
@@ -25,6 +27,7 @@ sequelize
 
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
+<<<<<<< HEAD
 });*/
 
 
@@ -133,3 +136,5 @@ sequelize
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
+
+
